@@ -1,0 +1,65 @@
+stages:
+- lint
+- small-test
+- big-test
+
+variables:
+  COUCHBASE_LOCALHOST_CLUSTER_DSN: 'couchbase://docker.webpt.com-docker-couchbase'
+
+syntax:
+  image: docker.webpt.com/devops/docker-centos6-php56:current
+  stage: lint
+  script:
+   - composer install --no-interaction
+   - composer lint:syntax
+
+style:
+  image: docker.webpt.com/devops/docker-centos6-php56:current
+  stage: lint
+  script:
+   - composer install --no-interaction
+   - composer lint:style
+
+units-locked:
+  image: docker.webpt.com/devops/docker-centos6-php56:current
+  stage: small-test
+  script:
+   - composer install --no-interaction
+   - composer test:units
+
+units-highest:
+  image: docker.webpt.com/devops/docker-centos6-php56:current
+  stage: small-test
+  script:
+   - composer update --no-interaction
+   - composer test:units
+
+units-lowest:
+  image: docker.webpt.com/devops/docker-centos6-php56:current
+  stage: small-test
+  script:
+   - composer update --no-interaction --prefer-lowest
+   - composer test:units
+
+coverage:
+  image: docker.webpt.com/devops/docker-centos6-php56:current
+  stage: small-test
+  script:
+   - composer install --no-interaction
+   - composer test:coverage
+
+units-php70:
+  image: docker.webpt.com/devops/docker-centos6-php70:beta
+  stage: small-test
+  script:
+   - composer install --no-interaction
+   - composer test:units
+
+integration:
+  image: docker.webpt.com/devops/docker-centos6-php56:latest
+  stage: big-test
+  services:
+   - docker.webpt.com/docker/couchbase
+  script:
+   - composer install --no-interaction
+   - composer test:integration
