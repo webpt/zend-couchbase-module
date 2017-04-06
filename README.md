@@ -1,3 +1,7 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webpt/zend-couchbase-module/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/webpt/zend-couchbase-module/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/webpt/zend-couchbase-module/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/webpt/zend-couchbase-module/?branch=master)
+[![Build Status](https://travis-ci.org/webpt/zend-couchbase-module.svg?branch=master)](https://travis-ci.org/webpt/zend-couchbase-module)
+
 # webpt/zend-couchbase-module
 
 Provides an abstract factory for instantiating named \CouchbaseBucket objects.

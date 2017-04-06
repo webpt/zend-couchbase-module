@@ -1,0 +1,8 @@
+build:
+  tests:
+    override:
+      -
+        command: 'composer test:coverage'
+        coverage:
+          file: 'coverage.clover'
+          format: 'php-clover'

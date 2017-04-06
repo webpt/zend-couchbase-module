@@ -37,7 +37,7 @@
     "lint:beautify": "vendor/bin/phpcbf --standard=PSR2 --extensions=php --severity=1 src/ tests/ -v",
     "lint:style": "vendor/bin/phpcs --standard=PSR2 --extensions=php --severity=1 src/ tests/ -v",
     "lint:syntax": "vendor/bin/parallel-lint src/ tests/",
-    "test:coverage": "vendor/bin/phpunit --exclude-group integration --coverage-text",
+    "test:coverage": "vendor/bin/phpunit --exclude-group integration --coverage-text --coverage-clover=coverage.clover",
     "test:integration": "vendor/bin/phpunit --group integration",
     "test:units": "vendor/bin/phpunit --exclude-group integration"
   }
