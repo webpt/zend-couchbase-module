@@ -16,4 +16,4 @@ script:
   - composer lint:syntax
   - composer lint:style
   - composer test:coverage
-  - ./tests/.travis/Couchbase.sh && COUCHBASE_LOCALHOST_CLUSTER_DSN=couchbase://couchbase composer test:integration
+  - ./tests/.travis/Couchbase.sh && composer test:integration
