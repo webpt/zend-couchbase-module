@@ -3,7 +3,7 @@
   "description": "Provides an abstract factory to instantiate \\CouchbaseBucket objects.",
   "minimum-stability": "stable",
   "type": "library",
-  "license": "proprietary",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "WebPT\\ZendCouchbaseModule\\": "src/"
