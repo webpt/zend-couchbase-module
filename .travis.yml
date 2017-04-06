@@ -16,5 +16,4 @@ script:
   - composer lint:syntax
   - composer lint:style
   - composer test:coverage
-  - composer test:mutations
-  - sh tests/.travis/Couchbase.sh && COUCHBASE_LOCALHOST_CLUSTER_DSN=couchbase://couchbase composer test:integration
+  - ./tests/.travis/Couchbase.sh && COUCHBASE_LOCALHOST_CLUSTER_DSN=couchbase://couchbase composer test:integration
