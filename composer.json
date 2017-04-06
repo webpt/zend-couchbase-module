@@ -1,0 +1,44 @@
+{
+  "name": "webpt/zend-couchbase-module",
+  "description": "Provides an abstract factory to instantiate \\CouchbaseBucket objects.",
+  "minimum-stability": "stable",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "WebPT\\ZendCouchbaseModule\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "require" : {
+    "php": ">=5.6",
+    "beberlei/assert": "^2.0",
+    "roave/security-advisories": "dev-master",
+    "zendframework/zend-modulemanager": "^2.0",
+    "zendframework/zend-servicemanager": "^2.0",
+    "zendframework/zend-stdlib": "^2.0"
+  },
+  "require-dev" : {
+    "igorw/get-in": "^1.0",
+    "jakub-onderka/php-parallel-lint": "*",
+    "johnkary/phpunit-speedtrap": "*",
+    "klever/tutor": "v0.1.0-alpha",
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "*",
+    "zendframework/zend-mvc": "^2.0"
+  },
+  "suggest": {
+    "ext-couchbase": "ext-couchbase:>=2.2 is required by this module, but we cannot impose this breaking change yet."
+  },
+  "scripts": {
+    "build": "composer lint:syntax && composer lint:style && composer test:units && composer test:mutations",
+    "lint:beautify": "vendor/bin/phpcbf --standard=PSR2 --extensions=php --severity=1 src/ tests/ -v",
+    "lint:style": "vendor/bin/phpcs --standard=PSR2 --extensions=php --severity=1 src/ tests/ -v",
+    "lint:syntax": "vendor/bin/parallel-lint src/ tests/",
+    "test:coverage": "vendor/bin/phpunit --exclude-group integration --coverage-text --coverage-clover=coverage.clover",
+    "test:integration": "vendor/bin/phpunit --group integration",
+    "test:units": "vendor/bin/phpunit --exclude-group integration"
+  }
+}
